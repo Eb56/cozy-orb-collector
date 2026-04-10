@@ -1,0 +1,62 @@
+:root {
+    --bg: #0a0a0f;
+    --text: #f8fafc;
+    --accent: #c084fc;
+}
+
+body, html { 
+    margin: 0; padding: 0; background: var(--bg); 
+    color: var(--text); font-family: 'Inter', system-ui, sans-serif;
+    overflow: hidden; height: 100vh;
+}
+
+/* The "Cool" Factor: Noise & Grain */
+.noise {
+    position: fixed; inset: 0; z-index: 99; pointer-events: none;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.25; contrast: 150%; brightness: 100%;
+}
+
+.vignette {
+    position: fixed; inset: 0; z-index: 5; pointer-events: none;
+    background: radial-gradient(circle at center, transparent 20%, rgba(0,0,0,0.8) 100%);
+}
+
+canvas { position: fixed; inset: 0; filter: blur(30px) saturate(1.5); }
+
+/* Premium Interface */
+.interface {
+    position: relative; z-index: 10; height: 100vh;
+    display: flex; flex-direction: column; padding: 60px; box-sizing: border-box;
+}
+
+header {
+    display: flex; justify-content: space-between; align-items: center;
+    text-transform: uppercase; letter-spacing: 0.2em; font-size: 12px;
+}
+
+.brand span { color: var(--accent); opacity: 0.6; }
+
+/* The Glass Box */
+#boot-wrapper {
+    flex-grow: 1; display: flex; justify-content: center; align-items: center;
+}
+
+.glass-box {
+    padding: 60px; text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.glass-box h1 { font-size: 3rem; font-weight: 200; margin: 0 0 10px; letter-spacing: -1px; }
+.glass-box p { opacity: 0.5; margin-bottom: 30px; }
+
+button {
+    background: white; color: black; border: none; padding: 16px 40px;
+    border-radius: 100px; font-weight: 600; cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+button:hover { transform: scale(1.05); background: var(--accent); color: white; }
